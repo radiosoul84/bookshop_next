@@ -5,7 +5,7 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 type AuthStoreType = {
   email: string;
   password: string;
-  token: string;
+  login: boolean;
   error: boolean;
   isAuthorized: boolean;
   loader: boolean;
@@ -25,7 +25,7 @@ export type AuthType = {
 const initialState: AuthStoreType = {
   email: "",
   password: "",
-  token: "",
+  login: false,
   error: false,
   isAuthorized: false,
   loader: false,
@@ -39,7 +39,7 @@ export const authorizeUser = createAsyncThunk<AuthType, BodyType>(
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(loginData),
-      /* body: "{\"email\": \"455m@ail.ru\",\"password\": \"4055500\"}" */
+      /* body: '{"email": "455m@ail.ru","password": "4055500"}', */
     });
 
     const response = await fetch(request);
@@ -62,10 +62,18 @@ const authSlice = createSlice({
     unauthorize: (state) => {
       state.email = "";
       state.password = "";
-      state.token = "";
+      state.login = false;
       state.error = false;
       state.isAuthorized = false;
       state.loader = false;
+    },
+
+    showLogin: (state) => {
+      state.login = true;
+    },
+
+    hideLogin: (state) => {
+      state.login = false;
     },
   },
 
@@ -74,6 +82,7 @@ const authSlice = createSlice({
 
       .addCase(authorizeUser.pending, (state) => {
         state.loader = true;
+        state.login = false;
       })
 
       .addCase(
@@ -92,5 +101,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { unauthorize } = authSlice.actions;
+export const { unauthorize, showLogin, hideLogin } = authSlice.actions;
 export default authSlice.reducer;
