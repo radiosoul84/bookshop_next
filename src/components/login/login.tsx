@@ -13,23 +13,25 @@ export default function Login() {
   const [loginDataPassword, setPassword] = useState("");
 
   function handleLogin(event: React.FormEvent) {
-    event.preventDefault()
+    event.preventDefault();
 
     const body = {
       email: loginDataEmail,
       password: loginDataPassword,
     };
-    console.log(body);
     dispatch(authorizeUser(body));
   }
 
   return (
     <div className={styles.container}>
       <h1>Log in</h1>
-
-      <form className={styles.mainForm} onSubmit={(event) => {handleLogin(event)}}>
+      <form
+        className={styles.mainForm}
+        onSubmit={(event) => {
+          handleLogin(event);
+        }}
+      >
         <label htmlFor="email">Email</label>
-
         <input
           type="text"
           id="email"
@@ -40,7 +42,6 @@ export default function Login() {
         />
 
         <label htmlFor="password">Password</label>
-
         <input
           type="text"
           id="password"
