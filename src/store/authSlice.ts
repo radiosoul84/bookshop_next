@@ -1,6 +1,7 @@
 "use client";
 
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { error } from "console";
 
 type AuthStoreType = {
   email: string;
@@ -9,6 +10,7 @@ type AuthStoreType = {
   error: boolean;
   isAuthorized: boolean;
   loader: boolean;
+  
 };
 
 export type BodyType = {
@@ -29,6 +31,7 @@ const initialState: AuthStoreType = {
   error: false,
   isAuthorized: false,
   loader: false,
+  
 };
 
 export const authorizeUser = createAsyncThunk<AuthType, BodyType>(
@@ -45,7 +48,8 @@ export const authorizeUser = createAsyncThunk<AuthType, BodyType>(
     const response = await fetch(request);
 
     if (!response.ok) {
-      throw new Error("Oops, fake server failed");
+     
+      throw new Error( "Oops, fake server failed" );
     }
     return {
       isAuthorized: true,
