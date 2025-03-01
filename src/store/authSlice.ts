@@ -34,19 +34,19 @@ const initialState: AuthStoreType = {
 export const authorizeUser = createAsyncThunk<AuthType, BodyType>(
   "auth/authorizeUser",
 
-  async (body) => {
-    const loginData = body;
-
-    const response = await fetch(`/api/auth`, {
-      method: "POST",
+  async (loginData) => {
+    let request = new Request("/api/auth", {
+      method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(loginData),
+      /* body: "{\"email\": \"455m@ail.ru\",\"password\": \"4055500\"}" */
     });
+
+    const response = await fetch(request);
+
     if (!response.ok) {
       throw new Error("Oops, fake server failed");
     }
-    /* const data = await response.json(); */
-
     return {
       isAuthorized: true,
       email: loginData.email,
