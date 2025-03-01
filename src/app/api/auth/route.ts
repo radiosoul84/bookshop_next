@@ -33,6 +33,6 @@ export async function POST(req: Request) {
   } else if (!emailValidationResult) {
     return NextResponse.json({ error: "Invalid email" }, { status: 400 });
   } else {
-    return NextResponse.json({ password });
+    return NextResponse.json( {status: 200});
   }
 }
