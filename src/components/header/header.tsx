@@ -11,13 +11,17 @@ import Login from "../login/login";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
+import { showLogin, hideLogin } from "@/store/authSlice";
 
 export default function Header() {
   const navi = ["books", "audiobooks", "stationery & gifts", "blog"];
 
-  const [showLogin, toggleLogin] = useState(false);
+  const dispatch = useDispatch();
+
+  const login = useSelector((state: RootState) => state.auth.login);
+
   const [active, setActive] = useState(0);
   const router = useRouter();
   const pathname = usePathname();
@@ -30,9 +34,11 @@ export default function Header() {
 
   function loginHandler() {
     if (!isLoggedIn) {
-      toggleLogin(!showLogin);
-    } else {
-      toggleLogin(false);
+      if (!login) {
+        dispatch(showLogin());
+      } else {
+        dispatch(hideLogin());
+      }
     }
   }
 
@@ -135,6 +141,7 @@ export default function Header() {
 
           <Link href="/cart">
             <button
+              disabled={!isLoggedIn}
               className={
                 styles.userblock__cart +
                 " " +
@@ -155,7 +162,7 @@ export default function Header() {
           </Link>
         </div>
       </div>
-      {showLogin ? <Login /> : <></>}
+      {login ? <Login /> : <></>}
     </header>
   );
 }
