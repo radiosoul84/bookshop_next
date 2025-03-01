@@ -12,15 +12,14 @@ export default function Login() {
   const [loginDataEmail, setEmail] = useState("");
   const [loginDataPassword, setPassword] = useState("");
 
-  async function handleLogin() {
-
+  function handleLogin(event: React.FormEvent) {
+    event.preventDefault()
 
     const body = {
       email: loginDataEmail,
       password: loginDataPassword,
     };
-
-    console.log(body)
+    console.log(body);
     dispatch(authorizeUser(body));
   }
 
@@ -28,7 +27,7 @@ export default function Login() {
     <div className={styles.container}>
       <h1>Log in</h1>
 
-      <form className={styles.mainForm} onSubmit={handleLogin}>
+      <form className={styles.mainForm} onSubmit={(event) => {handleLogin(event)}}>
         <label htmlFor="email">Email</label>
 
         <input
@@ -69,16 +68,6 @@ export default function Login() {
         <button className={styles.logBtn} type="submit">
           log in
         </button>
-
-        {/*   {showLogoutButton ? (
-          <button className={styles.logBtn} onClick={logoutHandler}>
-            log out
-          </button>
-        ) : (
-          <button className={styles.logBtn} type="submit">
-            log in
-          </button>
-        )} */}
       </form>
     </div>
   );
