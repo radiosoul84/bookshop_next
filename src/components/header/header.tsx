@@ -19,20 +19,18 @@ export default function Header() {
   const navi = ["books", "audiobooks", "stationery & gifts", "blog"];
 
   const dispatch = useDispatch();
-
-  const login = useSelector((state: RootState) => state.auth.login);
-
-  const [active, setActive] = useState(0);
   const router = useRouter();
   const pathname = usePathname();
 
+  const login = useSelector((state: RootState) => state.auth.login);
   const isLoggedIn = useSelector((state: RootState) => state.auth.isAuthorized);
-
   const inCart = useSelector(
     (state: RootState) => state.cart.booksInCart.length
   );
 
-  function loginHandler() {
+  const [active, setActive] = useState(0);
+
+  function loginFormHandler() {
     if (!isLoggedIn) {
       if (!login) {
         dispatch(showLogin());
@@ -107,7 +105,7 @@ export default function Header() {
         <div className={styles.header__userblock}>
           <Link href={isLoggedIn ? "/profile" : ""}>
             <button
-              onClick={loginHandler}
+              onClick={loginFormHandler}
               className={
                 styles.userblock__profile +
                 " " +
