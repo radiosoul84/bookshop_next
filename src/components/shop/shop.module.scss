@@ -1,0 +1,126 @@
+$wid: 1120px;
+$font: "montserrat", sans-serif;
+$textColor: rgba(92, 106, 121, 1);
+$marginLeftBlocks: 11%;
+$widthBlocks: 78%;
+
+@mixin hide-on-small-screens {
+  @media (min-width: 100px) and (max-width: 770px) {
+    display: none;
+  }
+}
+
+.shop {
+  width: 100%;
+  margin-left: $marginLeftBlocks;
+  margin-top: 5%;
+  font-family: $font;
+  position: relative;
+
+  .genres__block {
+    width: 30%;
+    margin-left: -$marginLeftBlocks;
+    background-color: rgba(239, 238, 246, 1);
+    height: 650px;
+    padding-top: 45px;
+
+    @media (min-width: 100px) and (max-width: 770px) {
+      min-width: 150px;
+    }
+
+    li {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-left: 35%;
+
+      ul {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        gap: 10px;
+
+        @media (min-width: 100px) and (max-width: 770px) {
+          min-width: 168px;
+        }
+      }
+    }
+
+    button {
+      background-color: transparent;
+      font-size: 15px;
+      font-weight: 400;
+      color: rgba(92, 106, 121, 1);
+
+      @media (min-width: 100px) and (max-width: 770px) {
+        font-size: 10px;
+      }
+    }
+
+    .activeButton {
+      background-color: transparent;
+      font-size: 15px;
+      font-weight: 800;
+      color: rgba(28, 42, 57, 1);
+
+      @media (min-width: 100px) and (max-width: 770px) {
+        font-size: 10px;
+      }
+    }
+
+    .active_genre_button {
+      font-weight: 800;
+      color: rgba(28, 42, 57, 1);
+    }
+
+    .genre_pointer {
+      width: 6px;
+      height: 6px;
+      border-radius: 3px;
+      background-color: rgba(117, 106, 211, 1);
+      margin-left: -15px;
+    }
+  }
+}
+
+.books {
+  width: 63%;
+  position: absolute;
+  top: 7%;
+  left: 15%;
+
+  .books__block {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    @media (min-width: 100px) and (max-width: 550px) {
+      margin-left: 20%;
+    }
+
+    @media (min-width: 551px) and (max-width: 770px) {
+      margin-left: 1%;
+    }
+  }
+}
+
+.shop__more_btn {
+  width: 25%;
+  margin-left: 35%;
+  margin-bottom: 20%;
+  color: rgba(76, 61, 178, 1);
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 1px solid rgba(76, 61, 178, 1);
+  font-size: 8px;
+  font-weight: 600;
+  height: 45px;
+}
+
+.loader {
+  margin: 0 auto;
+  font-size: 18px;
+  font-weight: 600;
+  height: 50vh;
+}

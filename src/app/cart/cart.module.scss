@@ -1,0 +1,161 @@
+$wid: 1120px;
+$font: "montserrat", sans-serif;
+$textColor: rgba(92, 106, 121, 1);
+$marginLeftBlocks: 11%;
+$widthBlocks: 78%;
+
+@mixin wrap-on-small-screens {
+  @media (min-width: 100px) and (max-width: 950px) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+}
+
+@mixin hide-on-small-screens {
+  @media (min-width: 100px) and (max-width: 950px) {
+    display: none;
+  }
+}
+
+.container {
+  width: 79%;
+  font-family: $font;
+  margin: 0 auto;
+  margin-top: 216px;
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+
+  h1 {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}
+
+.cart {
+  display: grid;
+  grid-template-columns: 40% 25% 20% 15%;
+
+  width: 100%;
+
+  p {
+    font-family: $font;
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: $textColor;
+  }
+
+  @include hide-on-small-screens();
+}
+
+.emptyCart {
+  margin-top: 5%;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.book {
+  display: grid;
+  grid-template-columns: 40% 25% 20% 15%;
+  align-items: center;
+  width: 100%;
+
+  @include wrap-on-small-screens();
+}
+
+.bookBlock {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 10px;
+
+  img {
+    width: 100px;
+    height: auto;
+    box-shadow: 10px 15px 5px rgb(236, 236, 236);
+  }
+}
+
+.bookInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.author {
+  font-weight: 400;
+  font-size: 10px;
+  color: rgba(92, 106, 121, 1);
+}
+
+.card__rating_container {
+  display: flex;
+  margin-top: 5%;
+  font-weight: 400;
+  font-size: 10px;
+  color: rgba(92, 106, 121, 1);
+}
+
+.quantity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 176px;
+  height: 45px;
+  border: 1px solid rgba(238, 237, 245, 1);
+
+  button {
+    height: 100%;
+    width: 30%;
+    font-weight: 500;
+    font-size: 32px;
+    background-color: transparent;
+  }
+
+  p {
+    font-weight: 700;
+    font-size: 16px;
+    color: rgba(92, 106, 121, 1);
+  }
+}
+
+.price {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.delivery {
+  font-weight: 700;
+  font-size: 12px;
+  color: rgba(92, 106, 121, 1);
+}
+
+.totalPrice {
+  margin-top: 5%;
+}
+
+.chkBtn {
+  width: 176px;
+  color: rgba(76, 61, 178, 1);
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 1px solid rgba(76, 61, 178, 1);
+  font-size: 8px;
+  font-weight: 600;
+  height: 45px;
+}
+
+.checkoutContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}

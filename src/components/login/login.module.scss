@@ -1,0 +1,79 @@
+$wid: 1120px;
+$font: "montserrat", sans-serif;
+$textColor: rgba(92, 106, 121, 1);
+$marginLeftBlocks: 11%;
+$widthBlocks: 78%;
+
+.container {
+  width: 241px;
+  height: 312px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  position: absolute;
+  font-family: $font;
+  top: 70px;
+  right: 5%;
+  padding: 17px 39px 36px 26px;
+  box-shadow: 1px 10px 15px 5px rgb(236, 236, 236);
+
+  h1 {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  form {
+    width: 100%;
+    background-color: transparent;
+    margin-top: 14px;
+
+    label {
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    input {
+      margin-top: 9px;
+      width: 100%;
+      height: 35px;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 9px;
+    }
+  }
+}
+
+.emailInput {
+  border: 1px solid rgba(76, 61, 178, 1);
+  color: rgba(76, 61, 178, 1);
+  margin-bottom: 15px;
+}
+
+.passwordInput {
+  border: 1px solid rgba(255, 53, 58, 1);
+  color: rgba(255, 53, 58, 1);
+}
+
+.error {
+  margin-top: 9px;
+  color: rgba(255, 53, 58, 1);
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.logBtn {
+  margin-top: 42px;
+  width: 100%;
+  height: 32px;
+  background-color: rgba(158, 152, 220, 1);
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+}
+
+.hidden {
+  display: none;
+}

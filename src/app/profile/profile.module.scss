@@ -1,0 +1,155 @@
+$wid: 1120px;
+$font: "montserrat", sans-serif;
+$textColor: rgba(92, 106, 121, 1);
+$marginLeftBlocks: 11%;
+$widthBlocks: 78%;
+
+@mixin wrap-on-small-screens {
+  @media (min-width: 100px) and (max-width: 950px) {
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+}
+
+@mixin small-screens {
+  @media (min-width: 100px) and (max-width: 1100px) {
+    font-size: 20px;
+  }
+}
+
+@mixin about-small-screens {
+  @media (min-width: 100px) and (max-width: 1100px) {
+    max-width: 100%;
+    height: fit-content;
+  }
+}
+
+@mixin button-small-screens {
+  @media (min-width: 100px) and (max-width: 1100px) {
+    width: 100%;
+    margin-top: 5%;
+    margin-left: 0%;
+  }
+}
+
+
+
+.main {
+  width: 79%;
+  font-family: $font;
+  margin: 0 auto;
+  margin-top: 216px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  @include wrap-on-small-screens;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 700;
+  }
+}
+
+.profile_wrapper {
+  display: flex;
+  justify-content: flex-start;
+  gap: 17px;
+
+  img {
+    width: 35%;
+    height: fit-content;
+  }
+
+  @include wrap-on-small-screens;
+}
+
+.profileBlock {
+  h3 {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 25px;
+  }
+}
+
+.name,
+.email {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 8px;
+
+  @include small-screens();
+}
+
+.about {
+  min-width: 250px;
+  max-width: 350px;
+  height: 345px;
+  background-color: rgba(255, 224, 226, 1);
+  box-shadow: 5px 15px 5px rgb(245, 245, 245);
+  padding: 17px 29px 29px 29px;
+  display: flex;
+  flex-direction: column;
+  gap: 29px;
+
+  h3 {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 auto;
+  }
+
+  p {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 15px;
+    color: rgba(92, 106, 121, 1);
+  }
+
+  @include about-small-screens();
+}
+
+.editButton {
+  margin-top: -5%;
+  margin-left: 26%;
+  width: 30%;
+  color: rgba(76, 61, 178, 1);
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 1px solid rgba(76, 61, 178, 1);
+  font-size: 8px;
+  font-weight: 600;
+  height: 45px;
+
+  @include button-small-screens()
+}
+
+.logoutButton {
+  margin-top: 15px;
+  margin-left: 26%;
+  width: 30%;
+  color: rgba(76, 61, 178, 1);
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 1px solid rgba(76, 61, 178, 1);
+  font-size: 8px;
+  font-weight: 600;
+  height: 45px;
+
+  @include button-small-screens()
+}
