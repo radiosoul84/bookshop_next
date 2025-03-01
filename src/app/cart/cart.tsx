@@ -1,9 +1,10 @@
 "use client";
-/* import Head from "next/head"; */
+
 import styles from "./cart.module.scss";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
+
 import {
   addToCart,
   removeFromCart,
@@ -21,6 +22,7 @@ export default function CartPage() {
   const dispatch = useDispatch();
   const booksToShow = useSelector((state: RootState) => state.cart.booksToShow);
   const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
+
 
   function createRatingStars(rating: number) {
     const fullRating = [estar, estar, estar, estar, estar];
